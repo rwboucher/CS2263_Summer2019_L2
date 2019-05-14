@@ -44,9 +44,18 @@ int compareAdjacent(int *a, int index)
  * TODO: implement in place sorting on an array
  * by using the two functions swapAdjacent and compareAdjacent
  */
-void inPlaceSort(int *a)
+void inPlaceSort(int *a, int array_size)
 {
-	int  adj = compareAdjacent(&a[0], 
+	int i = 0, j=0, comp=0; 
+	for (i = 0; i < array_size - 1; i++)
+	{
+		for (j = 0; j < array_size - i - 1; j++)
+		{
+			comp = compareAdjacent(&a[j], 0);
+			if (comp > 0)
+				swapAdjacent(&a[j], 0);
+		}
+	}			
 }
 
 int main(void)
@@ -84,7 +93,7 @@ int main(void)
     printf("=== Array before Sorting = ");
     printArray(a, array_size);
 
-    inPlaceSort(/* your input parameter */);
+    inPlaceSort(&a[0], array_size);
 
     printf("=== Array after Sorting = ");
     printArray(a, array_size);
