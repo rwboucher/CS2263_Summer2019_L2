@@ -30,23 +30,23 @@ void printArray(int *array, int size)
 
 void swapAdjacent(int *a, int index)
 {    
-    int *temp = a + index;
+    int temp = *(a + index);
     *(a + index) = *(a + index + 1);    
-    *(a + index + 1) = *temp;
+    *(a + index + 1) = temp;
 }
 
 int compareAdjacent(int *a, int index)
 {
-    return *a + index - *a + index + 1;
+    return *(a + index) - *(a + index + 1);
 }
 
 /**
  * TODO: implement in place sorting on an array
  * by using the two functions swapAdjacent and compareAdjacent
  */
-void inPlaceSort(/* your input parameter */)
+void inPlaceSort(int *a)
 {
-
+	int  adj = compareAdjacent(&a[0], 
 }
 
 int main(void)
@@ -74,11 +74,12 @@ int main(void)
      **********************/
 	 for (int i=0; i<array_size; i++)
 	 {
-		 if (scanf ("%d, &a[i]) != 1)
+		 if (scanf ("%d", &a[i]) != 1)
 		 {
 			 printf("Invalid integer.\n");
 			 return EXIT_FAILURE;
 		 }
+	 }
 
     printf("=== Array before Sorting = ");
     printArray(a, array_size);
