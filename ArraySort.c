@@ -90,12 +90,12 @@ int main(void)
 		 }
 	 }
 
-    printf("=== Array before Sorting = ");
+    // printf("=== Array before Sorting = ");
     printArray(a, array_size);
 
     inPlaceSort(&a[0], array_size);
 
-    printf("=== Array after Sorting = ");
+    // printf("=== Array after Sorting = ");
     printArray(a, array_size);
 
 }
